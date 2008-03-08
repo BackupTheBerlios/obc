@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ObjetivoC" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ObjetivoC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libobjc" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ObjetivoC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libobjc" />
+				</Linker>
+			</Target>
+			<Target title="utiles">
+				<Option output="libOCutiles" prefix_auto="1" extension_auto="1" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Linker>
+					<Add library="libobjc" />
+				</Linker>
+			</Target>
+			<Target title="pruebas">
+				<Option output="PruebasObjetivoC" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libobjc" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="libobjc" />
+		</Linker>
+		<Unit filename="pruebas/OCProbable.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/OCPrueba.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/OCPrueba.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/OCPruebaEnteros.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/OCPruebaEnteros.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/pruebas.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="utiles/OCCadena.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Unit filename="utiles/OCCadena.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Unit filename="utiles/OCLista.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Unit filename="utiles/OCLista.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Unit filename="utiles/OCNodo.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Unit filename="utiles/OCNodo.m">
+			<Option compile="1" />
+			<Option link="1" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="utiles" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

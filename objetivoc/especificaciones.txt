@@ -1,0 +1,271 @@
+﻿Opciones para un raytracer
+==========================
+
+  El primer paso es decidir qué objetivos debe cumplir el programa. Hay muchas
+opciones, elegir unas u otras en algunos casos requiere modificar el código de
+manera trivial; sin embargo, en otras ocasiones requerirá el rediseño de las
+estructuras de datos, algoritmos e interfaces.
+
+  Agrupamos las opciones en cuatro categorías: geometría, óptica, optimización y
+sistema.
+
+Geometría
+---------
+
+- Conjunto extensible de primitivas (esto es fácil utilizando POO).
+- Operaciones simples con primitivas: Implementación de las siguientes
+  operaciones con cada una de las primitivas:
+  - Leer: Leer una primitiva desde un fichero. Necesitaría parametrizar modelos
+    jerárquicos, lo que implicaría crear un lenguaje de modelado (odio el XML,
+    así que sería partiendo de cero).
+  - Intersección: Buscar la primera intersección de un rayo con un objeto -que
+    es la operación fundamental del trazado de rayos-. Para algunas primitivas,
+    además, lo mejor es transformar el rayo a un sistema de coordenadas locales.
+    Esto implica guardar una matriz de transformación con cada objeto.
+  - Normal: Devolver la normal en un punto de la superficie.
+  - Contenedor: Para la optimización es recomendable calcular volúmenes simples
+    (cubo, esfera) que contenga la figura.
+- Operaciones complejas con primitivas: Estas operaciones no se implementan para
+  cada primitiva, sin embargo sí deben estar especificadas en el fichero de la
+  escena.
+  - Transformación: Translación, escalado y rotación. Son las transformaciones
+    básicas que se pueden desarrollar para cada objeto. Esto implicaría, de
+    nuevo, almacenar una matriz 4 x 4 en cada objeto. También habría que
+    implementar la lectura de los comandos de transformación desde el fichero de
+    la escena.
+  - Deformación: La deformación de los objetos, más allá de la transformación
+    lineal es una poderosa herramienta de modelado. Sin embargo, esto implica un
+    coste en el cálculo de la intersección entre rayo y objeto.
+  - CSG: (Constructive Solid Geometry) La diferencia y la intersección de
+    primitivas facilitan el modelado. Para el uso de CSG se necesita que las
+    primitivas sean sólidos cerrados (si no todas la mayoría), por lo que los
+    polígonos y triángulos quedarían fuera de este sistema. También se relentiza
+    el cálculo de la intersección rayo-objeto.
+- Tipos de primitivas: Las que se me ocurren sobre la marcha.
+  - Polígono: Implementar intersección línea-plano. Implementar la prueba de si
+    un punto 2D está contenido en un polígono.
+  - Poliedros: Los poliedros se pueden simular con polígonos, sin embargo puede
+    ser interesante el implementarlos de otra manera para que se comporten como
+    sólidos cerrados (para CSG).
+  - Superficies cuadráticas: Superficies de segundo grado. Si se emplean para
+    CSG hay que ponerles límites a las superficies infinitas, como el cono o el
+    cilindro.
+    - Esfera
+    - Cilindro
+    - Cono
+    - Toroide (hay que tener en cuenta que puede tener cuatro puntos de
+      intersección).
+    - blob (hay que añadir el cálculo de raíces y distancias).
+	- Superficies paramétricas: Superficies de tipo bezier.
+	- Fractales: habría que incluir cálculos de los distintos fractales.
+
+Óptica
+------
+
+  Los efectos ópticos que se simulan con el raytracing influyen en el algoritmo
+de render que se use. No es lo mismo utilizar un sistema de render unbiased por
+Montecarlo que uno determinístico. En el primero no se pondría fin al bucle de
+trazado mientras que en el otro sí. Pero vamos por partes:
+
+- Cámara: lanza los rayos primarios del render. Además las hay de varios tipos.
+	- Proyección ortogonal: los rayos son paralelos desde el punto de vista al
+	  infinito.
+	- Perspectiva: Los rayos pasan a través de un punto de vista en la escena.
+	- Otras (ojo de pez, omnimax, etc.): En estos casos se está simulando una
+	  serie de elementos ópticos como el “objetivo” u “objetivos” de la cámara.
+	  Se podría crear una cámara paramétrica que incluyera los cálculos
+	  necesarios.
+	- Sombras: Lo primero que se necesita para sombrear un modelo. Lanzar rayos de
+	  sombra para cada luz y comprobar que no hay objetos ocluyéndola y generando
+	  “sombra”.
+	- Reflexión especular: El objeto refleja el entorno, como un espejo. Trazar un
+	  rayo en la dirección de la reflexión especular, almacenar el resultado o
+	  continuar la recursión.
+	- Transmisión (refracción): El objeto deja pasar a través de sí la luz. Por el
+	  cambio de densidad del medio se produce una desviación de la trayectoria del
+	  rayo. Por tanto, habrá que mantener en los datos de material del objeto el
+	  index of refraction (IOR). Un caso especial de la transmisión de la luz a
+	  través de los objetos es el SubSurface Scatering (o sss).
+	- Niebla: Para simular la absorción de la luz por la niebla habría que
+	  calcular la atenuación de las intensidades exponencialmente a la distancia.
+	- Atenuación de la luz: La intensidad de la luz desde su fuente es
+	  proporcional a 1/distancia^2 sin embargo, este hecho se suele ignorar en
+	  muchos programas de CG.
+	- Ley de reflexión de la luz de Fresnel: Determina la refracción y la
+	  reflexión especular como funciones del ángulo de incidencia de la luz y el
+	  índice de refracción, dados unos coeficientes.
+	- Shaders programables: Permitir que se puedan añadir fórmulas desde un
+	  lenguaje o módulo externo. Lo más cómodo sería hacer los shaders como
+	  librerías a las que llamar. Estas deberían ser capaces de manejar sus
+	  propios rayos de sombra, rayos transmitidos y rayos reflejados. Sería bueno
+	  si además se pudieran hacer en forma de scripts, para lo que habría que
+	  crear un lenguaje para ello o utilizar otros de propósito general como
+	  Python o Lua.
+	- Mapeo de texturas: Calcular los parámetros u y v de la superficie y
+	  pasárselo al shader.
+	- Texturas procedurales: como extensión de los shaders programables. Habría
+	  que implementar primitivas de textura limitadas a una banda de 0 a 1,
+	  calculando agitaciones y otro tipo de efectos de perturbación.
+	- Raytracing probabilístico: Para calcular el color devuelto a lo largo de un
+	  rayo, se deben integrar varios cálculos espaciales, angulares, temporales y
+	  “espectrales”. Estas se pueden integrar numéricamente lanzando rayos con una
+	  distribución de probabilidad.
+		- Técnicas de integración numérica: Las técnicas de integración numérica se
+	    utilizan cuando no es posible la integración analítica.
+		- Point sampling: Estima las distribuciones de probabilidad con la función
+		  d (delta).
+		- Uniform supersampling: Se toman muestras con separación fija. Se suele
+		  emplear para n^2 muestrear un pixel.
+		- Stochastic sampling (integración Monte Carlo): Los puntos de muestreo se
+		  eligen  aleatoriamente, bien moviendo los puntos de una malla uniforme o
+		  bien haciéndolo totalmente al azar. Las técnicas incrementales no se
+		  pueden utilizar si el espaciado del muestreo no es uniforme.
+		- Adaptive sampling: Tanto el muestreo uniforme como aleatorio se pueden
+		  mezclar sumando resultados si se subdividen más finamente las áreas que
+		  presenten una alta varianza. Los rayos se deben almacenar de algún modo
+		  (en un buffer, por ejemplo) para permitir el trazado redundante. La
+		  subdivisión se puede basar en varios criterios:
+		  - Intensidad y diferencia en el árbol de rayos: ¿La intensidad en las
+		    cuatro esquinas de un pixel difieren significativamente? ¿Difiere el
+		    objeto con el que intersecciona un rayo de pixel a pixel?
+		  - Varianza estimada: subdividir cada pixel hasta que la varianza de un
+		    subpixel esté por debajo de un umbral o el tamaño sea demasiado pequeño.
+		- Distribuciones que necesitan integración: Los efectos siguientes necesitan
+		  algún tipo de integración. Los parámetros pueden ser posición, dirección,
+		  tiempo, longitud de onda u otras variables.  Muchas de estas
+		  distribuciones se pueden integrar lanzando el correcto conjunto de rayos.
+		  - Área de pixel (también antialiasing). Lanzar rayos a través del área de
+		    un pixel.
+		  - Área de textura (antialiasing de textura). Muestrear el área de textura.
+		    Se necesita la información para cada uno de los rayos o se deben
+		    utilizar técnicas “adaptivas”.
+		  - Área de lentes (profundidad de campo). Se necesitarán algunos parámetros
+		    adicionales en la cámara para simular la profundidad de campo y la
+		    distancia focal.
+		  - Ángulo de reflexión especular (brillo, relieve, antialiasing). Trazar
+		    rayos en todo el ángulo de la reflexión especular. Se necesita
+		    información sobre la superficie, curvatura y relieve para un buen
+		    antialiasing.
+		  - Ángulo de transmisión especular (superficies translúcidas). Trazar rayos
+		    en todo el ángulo de transmisión especular.
+		  - Tiempo de exposición (motion blur). Para simular objetos en movimiento
+		    hay que trazar rayos a lo largo del tiempo. Implica actualizar la
+		    posición, rotación y escalado de los objetos en cada instante y por
+		    tanto, acceder a los datos de animación.
+		  - Ángulo de luz (penumbras). Unas sombras suaves elevan el realismo. Hay
+		    que trazar rayos en todo el ángulo de la luz para determinar oclusiones
+		    parciales. Las luces deben tener un ángulo si son infinitas o ser
+		    objetos de la escena si son locales.
+		  - Ángulo de reflexión difusa (luz indirecta, radiosidad). La iluminación
+		    en escenas interiores se puede obtener mediante la reflexión difusa
+		    indirecta (radiosidad). La radiosidad se puede simular en un preproceso
+		    que calcule la iluminación incidente en cada superficie o trazando rayos
+		    a través del hemisferio visible para calcular la iluminación difusa al
+		    vuelo. Para calcular esa distribución se deben emplear muchos rayos. La
+		    integración numérica es muy susceptible a las luces intensas y pequeñas.
+		  - Integración del espectro. La reflectancia depende de la longitud de
+		    onda. Almacenar los colores como distribuciones del espectro mapeadas al
+		    menos por 3 frecuencias de color y convertir a rgb para guardar la
+		    salida del programa.
+		  - Ángulo de refracción espectral (dispersión). El índice de refracción
+		    depende de la longitud de onda, por eso los colores se refractan en
+		    diferentes ángulos. Habría que trazar rayos de diferentes longitudes de
+		    onda y combinar los resultados para calcular un color rgb.
+		  - Atmósfera (niebla, material translúcido). Hay que integrar tanto la
+		    absorción como la dispersión a lo largo de rayo. Calcular la densidad de
+		    un volumen desde un dato o una función espacial.
+		  - Sub-surface scattering. Podría tratarse como un caso especial a medio
+		    camino entre el tratamiento de la atmósfera y los cuerpos translúcidos.
+		  - Efectos relativistas. Fotones, caústicas.
+		  - Light ray tracing: Trazar rayos a lo largo del camino de los fotones.
+		    Almacenar los mapas de fotones como si fueran texturas para cada
+		    superficie. Esto lleva mucho tiempo de computación y necesita mucho espacio para almacenarlo.
+
+Optimización
+------------
+
+  Después de añadir todas las opciones el programa será muy lento. Necesitará
+optimización.
+
+- Algoritmos de optimización: Los métodos de optimización pasan por reducir el
+número de rayos generados o reducir el número de objetos con los que se
+contrastará un rayo.
+	- Reducir el número de rayos: Los siguientes métodos reducen el número de
+	  rayos.
+	  - Supermuestreo y submuestreo adaptables. El supermuestreo para el
+	    antialiasing es más importante cerca de los bordes donde hay un alto
+	    contraste. Si la resolución del muestreo es proporcional a la intensidad
+	    de la variación, puede ser que se reduzca en áreas planas, incluso siendo
+	    las muestras más espaciadas de un pixel (submuestreo).
+	  - Prueba de umbral del rayo. Comprobar si el peso que tendrá el color del
+	    rayo está por debajo de un umbral dado a partir del cual se le puede
+	    considerar insignificante y por tanto se podría abortar la recursión.
+	    Hay que tener en cuenta que algunos shaders pueden estar calculados al
+	    vuelo y tener a priori un peso casi cero engañando al programa, que haría
+	    que dichos shaders no renderizaran bien.
+	  - Muestreo de importancia. Es más eficaz realizar muestreos de las áreas más
+	    “pesadas” para una integración numérica. Se reducen los rayos trazando
+	    sólo uno de sombra, otro reflejado y otro transmitido para cada zona, y
+	    luego se aplica un peso proporcional a la probabilidad.
+	- Reducir el número de objetos con los que probar cada rayo.
+	  - Utilizar un algoritmo rápido de superficies ocultas para los rayos
+	    primarios. Los algoritmos Z-buffer o scanline son candidatos para ser
+	    utilizados para probar los rayos primarios. En escenas donde no haya mucha
+	    reflexión ni transmisión, los rayos primarios son un porcentaje alto del
+	    total de rayos.
+	  - Volúmenes envolventes (bounding volumes). Consiste en generar una
+	    jerarquía de volúmenes simples que envuelven los objetos de la escena. Los
+	    cálculos son más rápidos porque estos volúmenes son más sencillos que los
+	    objetos que contienen. Los volúmenes que se suelen utilizar son:
+	    - Esfera. Las intersecciones con una esfera son rápidas, pero es difícil
+	      anidar unas dentro de otras.
+	    - Cubo. Un paralelepípedo rectangular paralelo a los ejes del espacio. El
+	      cálculo es más lento pero se pueden anidar más fácilmente que las
+	      esferas.
+	  - Subdivisión espacial. El espacio se puede dividir en celdas cúbicas a
+	    través de las que pasa el rayo. Cada celda contiene una serie de
+	    superficies con las que realizar la prueba. Hay dos esquemas de
+	    subdivisión compitiendo.
+	    - Uniforme. Calcular por donde pasa el rayo es más fácil. Se utiliza una
+	      variante 3-D del algoritmo de Bresemham's
+	    - Octree. El octree se adapta mejor a la densidad local de los objetos que
+	      la uniforme.
+	    - Coherencia. Los objetos intersectados se pueden guardar en un caché para
+	      repasarlos rápidamente.
+	    - Shadow rays. En muchas escenas el porcentaje más algo de rayos son los
+	      de sombra.
+	      - Parar en la luz. Parar el trazado tan pronto como se encuentre un
+	        objeto entre el origen del rayo de sombra y la fuente de luz.
+	      - Buffer de luces.  Haciendo un render desde el punto de vista de cada
+	        una de las luces se puede crear una lista de bloqueadores de luz desde
+	        cualquier punto.
+	    - Hacer cada prueba de intersección menos costosa.
+	      - Optimizar la unión CSG. Si una rama CSG utiliza sólo el operador
+	        unión, los cálculos no necesitan una lista completa de los puntos que
+	        comparten los dos sólidos.
+	      - No dar forma a los rayos de sombra.  Tener cuidado cuando el rayo
+	        intersecte algo, pero no almacenar puntos de intersección o color.
+	      - No calcular la normal hasta que no se necesite.
+	    - Técnicas convencionales para optimización.
+	      - Cambiar el lenguaje. Plantearse utilizar un lenguaje de más bajo nivel
+	        (como ensamblador), sin embargo, esto puede reducir la portabilidad.
+	      - Cambiar las estructuras y tipos de datos. Optimizar las estructuras de
+	        datos más utilizadas (como rayo y color). La aritmética de entero
+	        también puede ayudar en los cálculos.
+	      - Aislar cuellos de botella. Hacerle un profile al programa para
+	        descubrir cuellos de botella. Optimizar sólo los cuellos de botella,
+	        no todo el programa.
+
+Sistema
+-------
+  Deben tenerse en cuenta algunos aspectos sobre el sistema para construir una
+herramienta de producción.
+  - Modularidad: Añadir módulos es sencillo y claro.
+  - Depurar y probar: Desarrollar un conjunto de pruebas y opciones que
+    comprueben todas las caracterítias de la aplicación.
+  - Interacción. Los raytracers se utilizan normalmente en modo patch y de forma
+    colaborativa.
+  - Animación. Diseñar un sistema de animación integrada en el lenguaje del
+    modelo.
+  - Cálculos Distribuidos. Crear un sistema para que varias máquinas puedan
+    trabajar sobre el render de una escena, de forma concurrente.
