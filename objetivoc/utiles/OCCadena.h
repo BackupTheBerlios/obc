@@ -19,6 +19,9 @@
 -(char*) cadena;
 -(void) anadeChars: (char*) c;
 -(void) anadeCadena: (OCCadena*) s;
+-(OCCadena*) subCadenaStart: (int) inicio end: (int) final;
+-(char) comparaCaracteres: (char*) c;
+-(char) comparaCadena:(OCCadena*) otra;
 @end
 
 #endif
