@@ -12,7 +12,8 @@
 #import <objc/Object.h>
 
 @interface OCCadena : Object{
-    char* caracter;
+    char*	caracter;
+	int		longitud;
 }
 -(OCCadena*) iniciaConCaracteres: (char*) s;
 -(void) ponCadena: (char*) s;
@@ -22,6 +23,7 @@
 -(OCCadena*) subcadenaInicio: (int) inicio fin: (int) final;
 -(char) comparaCaracteres: (char*) c;
 -(char) comparaCadena:(OCCadena*) otra;
+-(int)	longitud;
 @end
 
 #endif

@@ -15,6 +15,7 @@
 - (OCCadena*) iniciaConCaracteres: (char*)s
 {
 	[[super init] ponCadena: s];
+	longitud=strlen(s);
 	return self;
 }
 
@@ -22,13 +23,15 @@
 {
 	free(caracter);
 	[super free];
+	longitud=0;
 }
 
 - (void) ponCadena: (char*) s
 {
-	int size=strlen(s);
-	caracter = malloc(size);
+	longitud=strlen(s);
+	caracter = malloc(longitud+1);
 	strcpy(caracter, s);
+	caracter[longitud]=0;
 }
 
 - (char *) cadena
@@ -38,12 +41,14 @@
 
 - (void) anadeChars: (const char*) c
 {
-	int size   = strlen(c) + strlen(caracter);
+	int size   = longitud + strlen(caracter);
 	char* old = caracter;
-	caracter = malloc(size);
+	caracter = malloc(size+1);
 	strcpy(caracter, old);
 	strcat(caracter, c);
 	free(old);
+	longitud=size;
+	caracter[longitud]=0;
 }
 
 - (void) anadeCadena: (OCCadena*) s
@@ -74,5 +79,11 @@
 -(char) comparaCadena:(OCCadena*) otra{
 	return [self comparaCaracteres: [otra cadena]];
 }
+
+-(int) longitud{
+	return longitud;
+}
+
 @end
+
 
