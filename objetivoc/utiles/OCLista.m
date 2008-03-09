@@ -2,7 +2,7 @@
  * OCLista.m
  *
  * Creado por Notxor en 01/03/08
- * Modificado por Notxor en 02/03/08 12:19:38 
+ * Modificado por Notxor en 02/03/08 12:19:38
  */
 
 /*
@@ -10,12 +10,12 @@
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation; either version 2 of the License, or
  *      (at your option) any later version.
- *      
+ *
  *      This program is distributed in the hope that it will be useful,
  *      but WITHOUT ANY WARRANTY; without even the implied warranty of
  *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *      GNU General Public License for more details.
- *      
+ *
  *      You should have received a copy of the GNU General Public License
  *      along with this program; if not, write to the Free Software
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
@@ -25,7 +25,7 @@
 #import "OCLista.h"
 
 @implementation OCLista
-	
+
 - (id) init
 {
 	self = [super init];
@@ -43,7 +43,7 @@
 	//No está vacía si tiene al menos un elemento
 	if (cabeza) return NO; else	return YES;
 }
-	
+
 - (int) tamanio
 {
 	return tamanio;
@@ -54,8 +54,8 @@
 	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
 	if (cabeza)
 	{
-		[cabeza setAnterior: item];
-		[item setSiguiente: cabeza];
+		[cabeza ponAnterior: item];
+		[item ponSiguiente: cabeza];
 		cabeza = item;
 	} else {
 		cabeza = item;
@@ -69,8 +69,8 @@
 	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
 	if (cola)
 	{
-		[cola setSiguiente: item];
-		[item setAnterior: cola];
+		[cola ponSiguiente: item];
+		[item ponAnterior: cola];
 		cola = item;
 	} else {
 		cola = item;
@@ -90,7 +90,7 @@
 	} else {
 		OCNodo* item = cabeza;
 		cabeza = [item siguiente];
-		[cabeza setAnterior: nil];
+		[cabeza ponAnterior: nil];
 		[item free];
 	}
 	tamanio--;
@@ -107,7 +107,7 @@
 	} else {
 		OCNodo* item = cola;
 		cola = [item anterior];
-		[cola setSiguiente: nil];
+		[cola ponSiguiente: nil];
 		[item free];
 	}
 	tamanio--;
@@ -122,13 +122,13 @@
 	{
 		cabeza = post;
 		if (cabeza == nil) cola = nil; // la lista está vacía, porque post == nil
-		else [post setAnterior: nil];	// lo hacemos cabeza de la lista
+		else [post ponAnterior: nil];	// lo hacemos cabeza de la lista
 	} else if (post == nil) { // si ha llegado hasta aquí es porque (pre != nil)
-		[pre setSiguiente: nil];
+		[pre ponSiguiente: nil];
 		cola = pre;
 	} else { // es un elemento del medio de la lista
-		[pre setSiguiente: post];
-		[post setAnterior: pre];
+		[pre ponSiguiente: post];
+		[post ponAnterior: pre];
 	}
 	[pOCNodo free];
 	tamanio--;

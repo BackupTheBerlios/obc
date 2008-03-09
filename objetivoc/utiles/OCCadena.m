@@ -12,9 +12,9 @@
 
 
 @implementation OCCadena
-- (OCCadena*) initWithChars: (char*)s
+- (OCCadena*) iniciaConCaracteres: (char*)s
 {
-	[[super init] setCadena: s];
+	[[super init] ponCadena: s];
 	return self;
 }
 
@@ -24,7 +24,7 @@
 	[super free];
 }
 
-- (void) setCadena: (char*) s
+- (void) ponCadena: (char*) s
 {
 	int size=strlen(s);
 	caracter = malloc(size);
@@ -51,16 +51,16 @@
 	[self anadeChars:[s cadena]];
 }
 
--(OCCadena*) subCadenaStart: (int) inicio end: (int) final
+-(OCCadena*) subcadenaInicio: (int) inicio fin: (int) final
 {
 	OCCadena* sub;
 	int	size = final-inicio;						//Calculamos las dimensiones del trozo, en un futuro le pondremos opciones raras
 	char* new= malloc((size+1)*sizeof(char));		//Nos Cogemos memoria
-	strncpy(new,&(caracter[inicio]),size);			//Como siempre sudamos de si tenemos o no memoria, y le metemos el string, 
+	strncpy(new,&(caracter[inicio]),size);			//Como siempre sudamos de si tenemos o no memoria, y le metemos el string,
 			//empezando por la posicion inicio, y el numero size de caracteres
 	new[size]=0;									//Ponemos un 0 a la ultima posicion del nuevo string
 	// Tenemos 2 opciones, esta Ã©s la mÃ s bonita, y mÃ s controlada
-	sub=[[OCCadena alloc] initWithChars: new];				//
+	sub=[[OCCadena alloc] iniciaConCaracteres: new];				//
 	free(new);
 	// Pero tambien tenemos esta opcion, mÃ s fea, perÃ² evitamos estar haciendo mallocs i free continuamente, mejoramos rendimiento
 	// [[sub alloc] caracter=new]  //seguramente deveriamos hacer un metodo interno que nos hiciera esto, en java lo huviera hecho, perÃ² claro... no Ã©s java

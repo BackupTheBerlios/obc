@@ -14,12 +14,12 @@
 @interface OCCadena : Object{
     char* caracter;
 }
--(OCCadena*) initWithChars: (char*) s;
--(void) setCadena: (char*) s;
+-(OCCadena*) iniciaConCaracteres: (char*) s;
+-(void) ponCadena: (char*) s;
 -(char*) cadena;
 -(void) anadeChars: (char*) c;
 -(void) anadeCadena: (OCCadena*) s;
--(OCCadena*) subCadenaStart: (int) inicio end: (int) final;
+-(OCCadena*) subcadenaInicio: (int) inicio fin: (int) final;
 -(char) comparaCaracteres: (char*) c;
 -(char) comparaCadena:(OCCadena*) otra;
 @end
