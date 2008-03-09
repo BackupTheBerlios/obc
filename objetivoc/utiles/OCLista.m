@@ -1,0 +1,172 @@
+/*
+ * OCLista.m
+ *
+ * Creado por Notxor en 01/03/08
+ * Modificado por Notxor en 02/03/08 12:19:38 
+ */
+
+/*
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ */
+
+#import "OCLista.h"
+
+@implementation OCLista
+	
+- (id) init
+{
+	self = [super init];
+	if (self != nil)
+	{
+		cabeza = nil;
+		cola = nil;
+		tamanio = 0;
+	}
+		return self;
+}
+
+- (BOOL) estaVacia
+{
+	//No está vacía si tiene al menos un elemento
+	if (cabeza) return NO; else	return YES;
+}
+	
+- (int) tamanio
+{
+	return tamanio;
+}
+
+- (void)ponerEnCabeza: (id) pDato
+{
+	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
+	if (cabeza)
+	{
+		[cabeza setAnterior: item];
+		[item setSiguiente: cabeza];
+		cabeza = item;
+	} else {
+		cabeza = item;
+		cola = item;
+	}
+	tamanio++;
+}
+
+- (void)ponerEnCola: (id) pDato
+{
+	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
+	if (cola)
+	{
+		[cola setSiguiente: item];
+		[item setAnterior: cola];
+		cola = item;
+	} else {
+		cola = item;
+		cabeza = item;
+	}
+	tamanio++;
+}
+
+- (void) quitarCabeza
+{
+	if (cabeza == nil) return;
+	if (cabeza == cola)
+	{
+		[cabeza free];
+		cabeza = nil;
+		cola = nil;
+	} else {
+		OCNodo* item = cabeza;
+		cabeza = [item siguiente];
+		[cabeza setAnterior: nil];
+		[item free];
+	}
+	tamanio--;
+}
+
+- (void) quitarCola
+{
+	if (cola == nil) return;
+	if (cola == cabeza)
+	{
+		[cola free];
+		cola = nil;
+		cabeza = nil;
+	} else {
+		OCNodo* item = cola;
+		cola = [item anterior];
+		[cola setSiguiente: nil];
+		[item free];
+	}
+	tamanio--;
+}
+
+- (void) borra: (OCNodo*) pOCNodo
+{
+	if (pOCNodo == nil) return;
+	OCNodo* pre = [pOCNodo anterior];
+	OCNodo* post = [pOCNodo siguiente];
+	if (pre == nil) // es la cabeza de la lista
+	{
+		cabeza = post;
+		if (cabeza == nil) cola = nil; // la lista está vacía, porque post == nil
+		else [post setAnterior: nil];	// lo hacemos cabeza de la lista
+	} else if (post == nil) { // si ha llegado hasta aquí es porque (pre != nil)
+		[pre setSiguiente: nil];
+		cola = pre;
+	} else { // es un elemento del medio de la lista
+		[pre setSiguiente: post];
+		[post setAnterior: pre];
+	}
+	[pOCNodo free];
+	tamanio--;
+}
+
+- (void) quita: (id) pDato
+{
+	OCNodo* it;
+	for (it=[self inicio]; it != nil; it = [it siguiente])
+	{
+		if ([it dato] == pDato)
+		{
+			[self borra: it];
+			break;
+		}
+	}
+}
+
+- (OCNodo*) inicio
+{
+	return cabeza;
+}
+
+- (OCNodo*) fin
+{
+	return cola;
+}
+
+- (id) cabeza
+{
+	if (cabeza != nil) return [cabeza dato];
+	return nil;
+}
+
+- (id) cola
+{
+	if (cola != nil) return [cola dato];
+	return nil;
+}
+
+@end
