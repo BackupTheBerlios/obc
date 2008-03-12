@@ -20,7 +20,7 @@
 -(char*) cadena;
 -(void) anadeChars: (char*) c;
 -(void) anadeCadena: (OCCadena*) s;
--(OCCadena*) subcadenaInicio: (int) inicio fin: (int) final;
+-(OCCadena*) subCadena: (int) inicio : (int) final;
 -(char) comparaCaracteres: (char*) c;
 -(char) comparaCadena:(OCCadena*) otra;
 -(int)	longitud;

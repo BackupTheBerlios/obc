@@ -23,11 +23,20 @@
  */
 
 #import "OCPruebaEnteros.h"
+#import "PruebaOCCadena.h"
 #import <stdio.h>
 
 int main(int argc, char* argv[])
 {
 	OCPruebaEnteros* pruebas = [[OCPruebaEnteros alloc] init];
+	PruebaOCCadena* pruebaCadena = [[PruebaOCCadena alloc] init];
+	
+	[pruebaCadena Longitud];
+	[pruebaCadena ComparaCadenaIgual];
+	[pruebaCadena ComparaCadenaDistinta];
+	[pruebaCadena subcadena];
+	[pruebaCadena anadeCadena];
+	
 	printf("Pruebas para la clase %s: ", [pruebas nombre]);
 
 	[pruebas laOperacion: 4+5 esIgualA: 9];
@@ -37,6 +46,7 @@ int main(int argc, char* argv[])
 
 	printf("\n");
 	[pruebas free];
+	[pruebaCadena free];
 
 	return 0;
 }

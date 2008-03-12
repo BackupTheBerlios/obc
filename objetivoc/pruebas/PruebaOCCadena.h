@@ -6,18 +6,20 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <objc/Object.h>
+#import "../utiles/OCCadena.h"
 
 
 @interface PruebaOCCadena : Object {
-(OCCadena*) una;
+	OCCadena* una;
+	OCCadena* sub;
 }
 
--(OCCadena*) init;
+-(PruebaOCCadena*) init;
 -(void)	Longitud;
 -(void) ComparaCadenaIgual;
 -(void) ComparaCadenaDistinta;
--(void) Cadena;
 -(void) subcadena;
+-(void) anadeCadena;
 
 @end

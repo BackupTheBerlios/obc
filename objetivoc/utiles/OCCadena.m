@@ -56,7 +56,7 @@
 	[self anadeChars:[s cadena]];
 }
 
--(OCCadena*) subcadenaInicio: (int) inicio fin: (int) final
+-(OCCadena*) subCadena: (int) inicio : (int) final
 {
 	OCCadena* sub;
 	int	size = final-inicio;						//Calculamos las dimensiones del trozo, en un futuro le pondremos opciones raras
