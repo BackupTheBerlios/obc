@@ -32,7 +32,7 @@
 	caracter = malloc(longitud+1);
 	strcpy(caracter, s);
 	caracter[longitud]=0;
-	return self
+	return self;
 }
 
 - (char *) cadena
@@ -50,7 +50,7 @@
 	free(old);
 	longitud=size;
 	caracter[longitud]=0;
-	return self
+	return self;
 }
 
 - (OCCadena*) anadeCadena: (OCCadena*) s
