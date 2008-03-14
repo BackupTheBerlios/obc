@@ -10,7 +10,6 @@
 #import <string.h>
 #import <stdlib.h>
 
-
 @implementation OCCadena
 - (OCCadena*) iniciaConCaracteres: (char*)s
 {
@@ -29,6 +28,8 @@
 - (OCCadena*) ponCadena: (char*) s
 {
 	longitud=strlen(s);
+	if (caracter)
+		free(caracter);
 	caracter = malloc(longitud+1);
 	strcpy(caracter, s);
 	caracter[longitud]=0;
@@ -42,7 +43,7 @@
 
 - (OCCadena*) anadeChars: (const char*) c
 {
-	int size   = longitud + strlen(caracter);
+	int size   = longitud + strlen(c);
 	char* old = caracter;
 	caracter = malloc(size+1);
 	strcpy(caracter, old);

@@ -61,7 +61,8 @@
 	char* cadena="PUEDE SER LA REOSTIA!";
 	OCCadena* resultado;
 	sub=[[OCCadena alloc] iniciaConCaracteres: cadena];
-	resultado=[una subCadena:0 : 15];
+	resultado=[una subCadena:0 : 5];
+	//printf("%s -> %i\n %s\n", [resultado cadena], [resultado longitud], cadena);
 	[resultado anadeChars: cadena];
 	printf("Anyadiendo Caracteres: %s\n", [resultado cadena]);
 	[resultado free];
