@@ -27,7 +27,7 @@
 
 @implementation OCNodo
 
-- (id) iniciarConDato: (id) pDato
+- (OCNodo*) iniciarConDato: (id) pDato
 {
 	self = [super init];
 	dato = pDato;
@@ -41,9 +41,10 @@
 	return dato;
 }
 
-- (void) pon: (id) pDato;
+- (OCNodo*) pon: (id) pDato;
 {
 	dato = pDato;
+	return self;
 }
 
 - (OCNodo*) siguiente
@@ -56,14 +57,16 @@
 	return nodoAnterior;
 }
 
-- (void) ponSiguiente: (OCNodo*) pSiguiente
+- (OCNodo*) ponSiguiente: (OCNodo*) pSiguiente
 {
 	nodoSiguiente = pSiguiente;
+	return self;
 }
 
-- (void) ponAnterior: (OCNodo*) pAnterior
+- (OCNodo*) ponAnterior: (OCNodo*) pAnterior
 {
 	nodoAnterior = pAnterior;
+	return self;
 }
 
 @end

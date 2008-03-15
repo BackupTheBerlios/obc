@@ -35,7 +35,7 @@
 		cola = nil;
 		tamanio = 0;
 	}
-		return self;
+	return self;
 }
 
 - (BOOL) estaVacia

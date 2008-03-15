@@ -29,6 +29,10 @@
 #import <objc/Object.h>
 #import "OCNodo.h"
 
+/*! \interface OCLista
+ *
+ */
+
 @interface OCLista : Object
 {
 	OCNodo* cabeza;
@@ -45,16 +49,16 @@
 - (OCLista*) ponerEnCola: (id) pDato;
 
 - (OCLista*) quitarCabeza;
-- (OCLista*)quitarCola;
+- (OCLista*) quitarCola;
 
 - (OCLista*) borra: (OCNodo*) pOCNodo;
 - (OCLista*) quita: (id) pDato;
 
-- (OCNodo*)inicio;
-- (OCNodo*)fin;
+- (OCNodo*) inicio;
+- (OCNodo*) fin;
 
-- (id)cabeza;
-- (id)cola;
+- (id) cabeza;
+- (id) cola;
 
 @end
 
