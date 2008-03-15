@@ -25,19 +25,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/local/bin/ccmake
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dracks/Documents/Programacio/tmp/objetivoc
+CMAKE_SOURCE_DIR = /home/far/proyectos/objetivoc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dracks/Documents/Programacio/tmp/objetivoc
+CMAKE_BINARY_DIR = /home/far/proyectos/objetivoc
 
 # Include the progress variables for this target.
 include CMakeFiles/progress.make
@@ -48,7 +48,7 @@ include CMakeFiles/progress.make
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc/pruebas && /usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	cd /home/far/proyectos/objetivoc/pruebas && /usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
@@ -56,31 +56,31 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc/pruebas && /usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	cd /home/far/proyectos/objetivoc/pruebas && /usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(CMAKE_COMMAND) -E cmake_progress_start /Users/dracks/Documents/Programacio/tmp/objetivoc/CMakeFiles $(CMAKE_ALL_PROGRESS)
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dracks/Documents/Programacio/tmp/objetivoc/CMakeFiles 0
+	cd /home/far/proyectos/objetivoc && $(CMAKE_COMMAND) -E cmake_progress_start /home/far/proyectos/objetivoc/CMakeFiles $(CMAKE_ALL_PROGRESS)
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/far/proyectos/objetivoc/CMakeFiles 0
 
 # The main clean target
 clean:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/clean
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/clean
 
 # The main clean target
 clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/preinstall
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/preinstall
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/preinstall
 
 # clear depends
 depend:
@@ -88,73 +88,73 @@ depend:
 
 # Convenience name for target.
 pruebas/CMakeFiles/OCPruebas.dir/rule:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/CMakeFiles/OCPruebas.dir/rule
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/CMakeFiles/OCPruebas.dir/rule
 
 # Convenience name for target.
 OCPruebas: pruebas/CMakeFiles/OCPruebas.dir/rule
 
 # fast build rule for target.
 OCPruebas/fast:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/build
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/build
 
 # Convenience name for target.
 pruebas/CMakeFiles/Pruebas.dir/rule:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/CMakeFiles/Pruebas.dir/rule
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f CMakeFiles/Makefile2 pruebas/CMakeFiles/Pruebas.dir/rule
 
 # Convenience name for target.
 Pruebas: pruebas/CMakeFiles/Pruebas.dir/rule
 
 # fast build rule for target.
 Pruebas/fast:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/build
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/build
 
 # target to build an object file
-OCPRueba.o:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPRueba.o
+OCPrueba.o:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPrueba.o
 
 # target to preprocess a source file
-OCPRueba.i:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPRueba.i
+OCPrueba.i:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPrueba.i
 
 # target to generate assembly for a file
-OCPRueba.s:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPRueba.s
+OCPrueba.s:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPrueba.s
 
 # target to build an object file
 OCPruebaEnteros.o:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.o
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.o
 
 # target to preprocess a source file
 OCPruebaEnteros.i:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.i
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.i
 
 # target to generate assembly for a file
 OCPruebaEnteros.s:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.s
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/OCPruebaEnteros.s
 
 # target to build an object file
 PruebaOCCadena.o:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.o
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.o
 
 # target to preprocess a source file
 PruebaOCCadena.i:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.i
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.i
 
 # target to generate assembly for a file
 PruebaOCCadena.s:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.s
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/OCPruebas.dir/build.make pruebas/CMakeFiles/OCPruebas.dir/PruebaOCCadena.s
 
 # target to build an object file
 pruebas.o:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.o
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.o
 
 # target to preprocess a source file
 pruebas.i:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.i
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.i
 
 # target to generate assembly for a file
 pruebas.s:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.s
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f pruebas/CMakeFiles/Pruebas.dir/build.make pruebas/CMakeFiles/Pruebas.dir/pruebas.s
 
 # Help Target
 help::
@@ -166,9 +166,9 @@ help::
 	@echo "... Pruebas"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... OCPRueba.o"
-	@echo "... OCPRueba.i"
-	@echo "... OCPRueba.s"
+	@echo "... OCPrueba.o"
+	@echo "... OCPrueba.i"
+	@echo "... OCPrueba.s"
 	@echo "... OCPruebaEnteros.o"
 	@echo "... OCPruebaEnteros.i"
 	@echo "... OCPruebaEnteros.s"
@@ -188,5 +188,5 @@ help::
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/dracks/Documents/Programacio/tmp/objetivoc && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/far/proyectos/objetivoc && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 

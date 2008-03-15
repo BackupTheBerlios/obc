@@ -49,7 +49,7 @@
 	return tamanio;
 }
 
-- (void)ponerEnCabeza: (id) pDato
+- (OCLista*) ponerEnCabeza: (id) pDato
 {
 	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
 	if (cabeza)
@@ -62,9 +62,10 @@
 		cola = item;
 	}
 	tamanio++;
+	return self;
 }
 
-- (void)ponerEnCola: (id) pDato
+- (OCLista*) ponerEnCola: (id) pDato
 {
 	OCNodo* item = [[OCNodo alloc] iniciarConDato: pDato];
 	if (cola)
@@ -77,9 +78,10 @@
 		cabeza = item;
 	}
 	tamanio++;
+	return self;
 }
 
-- (void) quitarCabeza
+- (OCLista*) quitarCabeza
 {
 	if (cabeza == nil) return;
 	if (cabeza == cola)
@@ -94,9 +96,10 @@
 		[item free];
 	}
 	tamanio--;
+	return self;
 }
 
-- (void) quitarCola
+- (OCLista*) quitarCola
 {
 	if (cola == nil) return;
 	if (cola == cabeza)
@@ -111,9 +114,10 @@
 		[item free];
 	}
 	tamanio--;
+	return self
 }
 
-- (void) borra: (OCNodo*) pOCNodo
+- (OCLista*) borra: (OCNodo*) pOCNodo
 {
 	if (pOCNodo == nil) return;
 	OCNodo* pre = [pOCNodo anterior];
@@ -132,9 +136,10 @@
 	}
 	[pOCNodo free];
 	tamanio--;
+	return self;
 }
 
-- (void) quita: (id) pDato
+- (OCLista*) quita: (id) pDato
 {
 	OCNodo* it;
 	for (it=[self inicio]; it != nil; it = [it siguiente])
@@ -145,6 +150,7 @@
 			break;
 		}
 	}
+	return self;
 }
 
 - (OCNodo*) inicio
