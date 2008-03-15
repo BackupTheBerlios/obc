@@ -40,6 +40,7 @@
  *
  *	Además de almacén, el OCNodo sirve para enlazar los datos apuntando al nodo
  * anterior y posterior.
+ *	@see OCLista
  */
 
 @interface OCNodo : Object

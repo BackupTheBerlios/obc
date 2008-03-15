@@ -26,7 +26,7 @@
 
 @implementation OCLista
 
-- (id) init
+- (OCLista*) init
 {
 	self = [super init];
 	if (self != nil)
