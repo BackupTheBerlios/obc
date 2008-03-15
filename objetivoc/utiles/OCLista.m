@@ -114,7 +114,7 @@
 		[item free];
 	}
 	tamanio--;
-	return self
+	return self;
 }
 
 - (OCLista*) borra: (OCNodo*) pOCNodo
