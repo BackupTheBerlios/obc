@@ -88,6 +88,16 @@
 			<Option target="Release" />
 			<Option target="pruebas" />
 		</Unit>
+		<Unit filename="pruebas/PruebaOCCadena.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
+		<Unit filename="pruebas/PruebaOCCadena.m">
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="pruebas" />
+		</Unit>
 		<Unit filename="pruebas/pruebas.m">
 			<Option compile="1" />
 			<Option link="1" />
