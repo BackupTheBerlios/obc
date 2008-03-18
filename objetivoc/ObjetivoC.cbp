@@ -105,6 +105,10 @@
 			<Option target="Release" />
 			<Option target="pruebas" />
 		</Unit>
+		<Unit filename="src/obc.m">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="utiles/OCCadena.h">
 			<Option target="Debug" />
 			<Option target="Release" />
