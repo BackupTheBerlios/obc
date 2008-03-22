@@ -14,7 +14,7 @@
 - (OCCadena*) iniciaConCaracteres: (char*)s
 {
 	[[super init] ponCadena: s];
-	longitud=strlen(s);
+	//longitud=strlen(s);
 	return self;
 }
 
@@ -85,6 +85,10 @@
 
 -(int) longitud{
 	return longitud;
+}
+
+-(OCTokenizer) romperPor: (char) t{
+	return [[OCTokenizer alloc] iniciaConCaracteres: [self cadena] rotosPor: t];
 }
 
 @end

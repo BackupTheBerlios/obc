@@ -9,7 +9,10 @@
 #ifndef __occadena_OBJETIVO_C
 #define __occadena_OBJETIVO_C
 
+@class OCCadena;
+
 #import <objc/Object.h>
+#import "OCTokenizer.h"
 
 /*! \interface OCCadena
  *	\brief La clase OCCadena nos sirve para el trabajo con cadenas de caracteres.
@@ -94,6 +97,13 @@
  *	@return un entero que representa la longitud en caracteres de la cadena.
  */
 -(int)	longitud;
+
+/*!
+ *  Devuelve un objeto OCTokenizer que contiene esta cadena rota por el caracter passado.
+ *  @param t es el caracter que usaremos para romper la cadena
+ *  @return un objeto del tipo OCTokenizer
+ */
+-(OCTokenizer) romperPor: (char) t;
 @end
 
 #endif
