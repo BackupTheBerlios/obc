@@ -133,6 +133,18 @@ OCNodo.i:
 OCNodo.s:
 	cd /home/far/proyectos/objetivoc && $(MAKE) -f utiles/CMakeFiles/Utiles.dir/build.make utiles/CMakeFiles/Utiles.dir/OCNodo.s
 
+# target to build an object file
+OCTokenizer.o:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f utiles/CMakeFiles/Utiles.dir/build.make utiles/CMakeFiles/Utiles.dir/OCTokenizer.o
+
+# target to preprocess a source file
+OCTokenizer.i:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f utiles/CMakeFiles/Utiles.dir/build.make utiles/CMakeFiles/Utiles.dir/OCTokenizer.i
+
+# target to generate assembly for a file
+OCTokenizer.s:
+	cd /home/far/proyectos/objetivoc && $(MAKE) -f utiles/CMakeFiles/Utiles.dir/build.make utiles/CMakeFiles/Utiles.dir/OCTokenizer.s
+
 # Help Target
 help::
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -151,6 +163,9 @@ help::
 	@echo "... OCNodo.o"
 	@echo "... OCNodo.i"
 	@echo "... OCNodo.s"
+	@echo "... OCTokenizer.o"
+	@echo "... OCTokenizer.i"
+	@echo "... OCTokenizer.s"
 
 
 

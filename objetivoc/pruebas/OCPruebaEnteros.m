@@ -56,7 +56,7 @@
 	}
 }
 
-- (char*)nombre
+- (char*) nombre
 {
 	return nombre;
 }

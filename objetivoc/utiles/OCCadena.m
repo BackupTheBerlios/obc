@@ -87,7 +87,7 @@
 	return longitud;
 }
 
--(OCTokenizer) romperPor: (char) t{
+-(OCTokenizer*) romperPor: (char) t{
 	return [[OCTokenizer alloc] iniciaConCaracteres: [self cadena] rotosPor: t];
 }
 

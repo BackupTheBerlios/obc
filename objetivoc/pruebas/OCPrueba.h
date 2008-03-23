@@ -26,8 +26,9 @@
 #define __ocprueba_OBJETIVO_C
 
 #import <objc/Object.h>
+#import "OCProbable.h"
 
-@interface OCPrueba : Object
+@interface OCPrueba : Object <OCProbable>
 {
     const char* nombre;
 }

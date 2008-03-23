@@ -103,7 +103,7 @@
  *  @param t es el caracter que usaremos para romper la cadena
  *  @return un objeto del tipo OCTokenizer
  */
--(OCTokenizer) romperPor: (char) t;
+-(OCTokenizer*) romperPor: (char) t;
 @end
 
 #endif

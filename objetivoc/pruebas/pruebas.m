@@ -1,7 +1,7 @@
 /*
  * pruebas.m
  *
- * Creado por Notxor en 02/03/08 20:24:55 
+ * Creado por Notxor en 02/03/08 20:24:55
  *
  */
 
@@ -10,12 +10,12 @@
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation; either version 2 of the License, or
  *      (at your option) any later version.
- *      
+ *
  *      This program is distributed in the hope that it will be useful,
  *      but WITHOUT ANY WARRANTY; without even the implied warranty of
  *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *      GNU General Public License for more details.
- *      
+ *
  *      You should have received a copy of the GNU General Public License
  *      along with this program; if not, write to the Free Software
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
@@ -30,19 +30,17 @@ int main(int argc, char* argv[])
 {
 	OCPruebaEnteros* pruebas = [[OCPruebaEnteros alloc] init];
 	PruebaOCCadena* pruebaCadena = [[PruebaOCCadena alloc] init];
-	
+
 	[pruebaCadena Longitud];
 	[pruebaCadena ComparaCadenaIgual];
 	[pruebaCadena ComparaCadenaDistinta];
 	[pruebaCadena subcadena];
 	[pruebaCadena anadeCadena];
-	
+
 	printf("Pruebas para la clase %s: ", [pruebas nombre]);
 
 	[pruebas laOperacion: 4+5 esIgualA: 9];
-	[pruebas laOperacion: 4+5 esIgualA: 22];
 	[pruebas laOperacion: 4+5 noEsIgualA: 11];
-	[pruebas laOperacion: 4+5 noEsIgualA: 9];
 
 	printf("\n");
 	[pruebas free];
