@@ -26,6 +26,9 @@
 
 #import <objc/Object.h>
 
+#import "OCParser.h"
+#import "OCEscena.h"
+
 int main(int argv, char **argc)
 {
 	/*!
@@ -40,6 +43,16 @@ int main(int argv, char **argc)
 	 *	También, los objetos y las luces deben contener otra serie de datos.
 	 * Principalmente información sobre materiales (color, textura, rugosidad...).
 	 */
+	OCParser* parser;
+	OCEscena* escena;
+
+	[[parser alloc] init];
+	escena = [parser delFichero: "noHayNombre"];
+	//Una vez creada la escena no necesitamos el parser
+	[parser free];
+
+	// Limpiar los objetos de la escena
+	[escena free];
 
 	return 0;
 }
