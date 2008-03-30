@@ -20,13 +20,26 @@
 
 #import <objc/Object.h>
 
+/*! \interface OCVector
+ *	\brief La clase OCVector es la base de todo el cálculo vectorial que debemos
+ * realizar.
+ *	\author Fernando Arroba Rubio
+ *
+ *	La mayor parte de los cálculos que se realizan en un raytracer se basan en
+ * el tratamiento de vectores. Podríamos decir que un vector es la posición de
+ * un punto medido desde el origen de coordenadas.
+ *
+ *	La propiedad más importante de un vector es que no es sólo una distancia,
+ * sino también una dirección en el espacio.
+ */
+
 @interface OCVector : Object
 {
 	float x;
 	float y;
 	float z;
 }
-- (OCVector*) init;
+- init;
 - (OCVector*) iniciarConX: float VX Y: float VY Z: VZ;
 - (OCVector*) ponX: float VX Y: float Y Z: VZ;
 - (float) x;

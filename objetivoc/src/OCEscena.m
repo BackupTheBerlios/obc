@@ -25,10 +25,9 @@
 
 @implementation OCEscena
 
-- (OCEscena*) init
+- init
 {
 	[super init];
-
 	return self;
 }
 

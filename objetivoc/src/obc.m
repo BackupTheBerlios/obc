@@ -25,6 +25,7 @@
 #define __objetivoc_OBJETIVO_C
 
 #import <objc/Object.h>
+#import <stdio.h>
 
 #import "OCParser.h"
 #import "OCEscena.h"
@@ -44,8 +45,10 @@ int main(int argv, char **argc)
 	 * Principalmente información sobre materiales (color, textura, rugosidad...).
 	 */
 
+	OCEscena* escena = [[OCEscena alloc] init];
 	OCParser* parser = [[OCParser alloc] init];
-	OCEscena* escena = [parser delFichero: "noHayNombre"];
+
+	escena = [parser delFichero: "OCParser*"];
 
 	//Una vez creada la escena no necesitamos el parser
 	[parser free];

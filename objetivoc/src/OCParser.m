@@ -25,19 +25,16 @@
 
 @implementation OCParser
 
-- (OCParser*) init
+- init
 {
 	[super init];
-
 	return self;
 }
 
 - (OCEscena*) delFichero: (char*) nombreFichero
 {
-	OCEscena* escena;
-
-	[[escena alloc] init];
-
+	OCEscena* escena = [[OCEscena alloc] init];
+	printf("Creando escena desde: %s\n", nombreFichero);
 	// Aquí se supone que va todo el curro del parser, de momento no hay nada.
 
 	return escena;

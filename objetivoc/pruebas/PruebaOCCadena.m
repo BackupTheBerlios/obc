@@ -11,7 +11,7 @@
 
 
 @implementation PruebaOCCadena
--(PruebaOCCadena*) init{
+- init{
 	[super init];
 	printf("Insertando cadena");
 	una=[[OCCadena alloc] iniciaConCaracteres: (char *)&"Hola noi!"];
@@ -70,7 +70,7 @@
 	[sub anadeCadena: resultado];
 	printf("Anyadiendo Cadena: %s\n", [sub cadena]);
 	[sub free];
-	[resultado free];	
+	[resultado free];
 }
 
 @end

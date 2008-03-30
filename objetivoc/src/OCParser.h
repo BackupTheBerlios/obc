@@ -24,17 +24,16 @@
 #ifndef __ocparser_OBJETIVO_C
 #define __ocparser_OBJETIVO_C
 
-//@class OCEscena;
+@class OCEscena;
 
 #import <objc/Object.h>
-#import "OCEscena.h"
 #import "../utiles/OCCadena.h"
 
 @interface OCParser : Object
 {
 	OCCadena* fichero;
 }
-- (OCParser*) init;
+- init;
 - (OCEscena*) delFichero: (char*) nombreFichero;
 @end
 

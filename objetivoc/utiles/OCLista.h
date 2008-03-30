@@ -58,7 +58,7 @@
  *	Constructor de la Lista.
  *	@return Un puntero a la lista creada.
  */
-- (OCLista*) init;
+- init;
 
 /*!
  *	Comprueba si la lista está vacía.

@@ -33,8 +33,7 @@
 	OCLista* luces;
 	OCLista* materiales;
 }
-- (OCEscena*) init;
-
+- init;
 @end
 
 #endif

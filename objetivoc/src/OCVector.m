@@ -20,7 +20,7 @@
 
 @implementation OCVector
 
-- (OCVector*) init
+- init
 {
 	[super init];
 	x = 0;

@@ -15,7 +15,7 @@
 	OCCadena* sub;
 }
 
--(PruebaOCCadena*) init;
+-init;
 -(void)	Longitud;
 -(void) ComparaCadenaIgual;
 -(void) ComparaCadenaDistinta;
