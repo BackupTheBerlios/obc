@@ -26,17 +26,21 @@
 	float y;
 	float z;
 }
-
+- (OCVector*) init;
 - (OCVector*) iniciarConX: float VX Y: float VY Z: VZ;
 - (OCVector*) ponX: float VX Y: float Y Z: VZ;
 - float x;
 - float y;
 - float z;
+- (OCVector*) ponX: float VX;
+- (OCVector*) ponY: float VY;
+- (OCVector*) ponZ: float VZ;
 - float productoEscalar: (OCVector*) vector;
 - (OCVector*) productoVectorial: (OCVector*) vector;
 - (OCVector*) multiplicaPorEscalar: float numero;
 - (OCVector*) dividePorEscalar: float numero;
 - float modulo;
 - (OCVector*) normaliza;
+@end
 
 #endif
