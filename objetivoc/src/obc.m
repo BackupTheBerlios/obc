@@ -43,11 +43,10 @@ int main(int argv, char **argc)
 	 *	También, los objetos y las luces deben contener otra serie de datos.
 	 * Principalmente información sobre materiales (color, textura, rugosidad...).
 	 */
-	OCParser* parser;
-	OCEscena* escena;
 
-	[[parser alloc] init];
-	escena = [parser delFichero: "noHayNombre"];
+	OCParser* parser = [[OCParser alloc] init];
+	OCEscena* escena = [parser delFichero: "noHayNombre"];
+
 	//Una vez creada la escena no necesitamos el parser
 	[parser free];
 

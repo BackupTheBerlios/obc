@@ -32,7 +32,7 @@
 {
     const char* nombre;
 }
-- init;
+- (id) init;
 - (BOOL)compruebaSi: (id)expresion1 esIgualA: (id)expresion2;
 - (BOOL)compruebaSi: (id)expresion1 noEsIgualA: (id)expresion2;
 @end

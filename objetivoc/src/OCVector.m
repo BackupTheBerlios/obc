@@ -46,22 +46,22 @@
 	return self;
 }
 
-- float x
+- (float) x
 {
 	return x;
 }
 
-- float y
+- (float) y
 {
 	return y;
 }
 
-- float z
+- (float) z
 {
 	return z;
 }
 
-- float productoEscalar: (OCVector*) vector
+- (float) productoEscalar: (OCVector*) vector
 {
 	return (x * [vector x] + y * [vector y] + z * [vector z]);
 }
@@ -93,12 +93,35 @@
 	return self;
 }
 
-- float modulo
+- (float) modulo
 {
+	return sqrt(x*x+y*y+z*z);
 }
 
 - (OCVector*) normaliza
 {
+	return [self dividePorEscalar: [self modulo]];
 }
 
+- (OCVector*) suma: (OCVector*) vector
+{
+	OCVector* v;
+
+	[[v alloc] init];
+	[v ponX: [vector x] + x];
+	[v ponY: [vector y] + y];
+	[v ponZ: [vector z] + z];
+	return v;
+}
+
+- (OCVector*) resta: (OCVector*) vector
+{
+	OCVector* v;
+
+	[[v alloc] init];
+	[v ponX: x - [vector x]];
+	[v ponY: y - [vector y]];
+	[v ponZ: z - [vector z]];
+	return v;
+}
 @end
