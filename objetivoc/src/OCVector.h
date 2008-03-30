@@ -1,10 +1,4 @@
 /*
- * OCParser.h
- *
- * Creado por Notxor en 25/03/08
- */
-
-/*
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation; either version 2 of the License, or
@@ -21,21 +15,28 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef __ocparser_OBJETIVO_C
-#define __ocparser_OBJETIVO_C
-
-@class OCEscena;
+#ifndef __ocvector_OBJETIVO_C
+#define __ocvector_OBJETIVO_C
 
 #import <objc/Object.h>
-//#import "OCEscena.h"
-#import "../utiles/OCCadena.h"
 
-@interface OCParser : Object
+@interface OCVector : Object
 {
-	OCCadena* fichero;
+	float x;
+	float y;
+	float z;
 }
-- (OCParser*) init;
-- (OCEscena*) delFichero: (char*) nombreFichero;
-@end
+
+- (OCVector*) iniciarConX: float VX Y: float VY Z: VZ;
+- (OCVector*) ponX: float VX Y: float Y Z: VZ;
+- float x;
+- float y;
+- float z;
+- float productoEscalar: (OCVector*) vector;
+- (OCVector*) productoVectorial: (OCVector*) vector;
+- (OCVector*) multiplicaPorEscalar: float numero;
+- (OCVector*) dividePorEscalar: float numero;
+- float modulo;
+- (OCVector*) normaliza;
 
 #endif
