@@ -56,7 +56,7 @@
 
 /*!
  *	Constructor de la Lista.
- *	@return Un puntero a la lista creada.
+ *	@return Un puntero id a la lista creada.
  */
 - init;
 
