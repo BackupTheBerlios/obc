@@ -107,7 +107,7 @@
 {
 	OCVector* v;
 
-	[[v alloc] init];
+	v=[[OCVector alloc] init];
 	[v ponX: [vector x] + x];
 	[v ponY: [vector y] + y];
 	[v ponZ: [vector z] + z];
@@ -118,7 +118,7 @@
 {
 	OCVector* v;
 
-	[[v alloc] init];
+	v=[[OCVector alloc] init];
 	[v ponX: x - [vector x]];
 	[v ponY: y - [vector y]];
 	[v ponZ: z - [vector z]];

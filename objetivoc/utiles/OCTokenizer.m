@@ -38,17 +38,21 @@
 	actual=[lista inicio];
 	return self;
 }
+
 -(OCTokenizer*) reinicia{
 	actual=[lista inicio];
 	return self;
 }
+
 -(OCCadena*)	actual{
 	return (OCCadena*) [actual dato];
 }
+
 -(OCCadena*)	siguiente{
 	actual=[actual siguiente];
 	return (OCCadena*) [actual dato];
 }
+
 -(void)			free{
 	[lista free];
 	[super free];
