@@ -53,7 +53,7 @@
  *	\param VZ desplazamiento en el eje z.
  *	\return Un puntero al objeto OCVector creado.
  */
-- (OCVector*) iniciarConX: float VX Y: float VY Z: VZ;
+- (OCVector*) iniciarConX: (float) VX Y: (float) VY Z: (float) VZ;
 
 /*!
  *	Establece los valores pasados por parámetros.
@@ -63,7 +63,7 @@
  *	\param VZ desplazamiento en el eje z.
  *	\return Un puntero a sí mismo, para poder encadenar operaciones.
  */
-- (OCVector*) ponX: float VX Y: float Y Z: VZ;
+- (OCVector*) ponX: (float) VX Y: (float) Y Z: (float) VZ;
 
 /*!
  *	Método que devuelve el valor del desplazamiento en el eje x.
@@ -88,21 +88,21 @@
  *	\param VX es el valor del nuevo desplazimiento en el eje x.
  *	\return Un puntero a sí mismo con el valor ya modificado.
  */
-- (OCVector*) ponX: float VX;
+- (OCVector*) ponX: (float) VX;
 
 /*!
  *	Establece el desplazamiento en el eje y.
  *	\param VX es el valor del nuevo desplazimiento en el eje y.
  *	\return Un puntero a sí mismo con el valor ya modificado.
  */
-- (OCVector*) ponY: float VY;
+- (OCVector*) ponY: (float) VY;
 
 /*!
  *	Establece el desplazamiento en el eje z.
  *	\param VX es el valor del nuevo desplazimiento en el eje z.
  *	\return Un puntero a sí mismo con el valor ya modificado.
  */
-- (OCVector*) ponZ: float VZ;
+- (OCVector*) ponZ: (float) VZ;
 
 /*!
  *	Calcula el producto escalar de dos vectores.
@@ -118,8 +118,8 @@
  *	\return Un vector resultado del producto vectorial.
  */
 - (OCVector*) productoVectorial: (OCVector*) vector;
-- (OCVector*) multiplicaPorEscalar: float numero;
-- (OCVector*) dividePorEscalar: float numero;
+- (OCVector*) multiplicaPorEscalar: (float) numero;
+- (OCVector*) dividePorEscalar: (float) numero;
 - (float) modulo;
 - (OCVector*) normaliza;
 - (OCVector*) suma: (OCVector*) vector;

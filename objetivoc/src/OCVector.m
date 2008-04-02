@@ -29,7 +29,7 @@
 	return self;
 }
 
-- (OCVector*) iniciarConX: float VX Y: float VY Z: VZ
+- (OCVector*) iniciarConX: (float) VX Y: (float) VY Z: (float)VZ
 {
 	[super init];
 	x = VX;
@@ -38,7 +38,7 @@
 	return self;
 }
 
-- (OCVector*) ponX: float VX Y: float Y Z: VZ
+- (OCVector*) ponX: (float) VX Y: (float) VY Z: (float) VZ
 {
 	x = VX;
 	y = VY;
@@ -75,7 +75,7 @@
 	return v;
 }
 
-- (OCVector*) multiplicaPorEscalar: float numero
+- (OCVector*) multiplicaPorEscalar: (float) numero
 {
 	x *= numero;
 	y *= numero;
@@ -83,7 +83,7 @@
 	return self;
 }
 
-- (OCVector*) dividePorEscalar: float numero
+- (OCVector*) dividePorEscalar: (float) numero
 {
 	if (numero != 0) {
 		x /= numero;
