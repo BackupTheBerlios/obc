@@ -118,11 +118,48 @@
  *	\return Un vector resultado del producto vectorial.
  */
 - (OCVector*) productoVectorial: (OCVector*) vector;
+
+/*!
+ *	Calcula el producto de un vector por un valor escalar.
+ *	\param El número por el que se multiplicará el vector.
+ *	\return El vector multiplicado por el escalar.
+ */
 - (OCVector*) multiplicaPorEscalar: (float) numero;
+
+/*!
+ *	Calcula el resultado de dividir un vector por un número escalar.
+ *	\param El número por que se dividirá el vector.
+ *	\return El vector dividido por el escalar.
+ */
 - (OCVector*) dividePorEscalar: (float) numero;
+
+/*!
+ *	Un vector consiste en una dirección y una magnitud. La dirección viene
+ * determinada por las coordenadas x, y, z en el espacio. La magnitud es el
+ * módulo.
+ *	\return El módulo del vector.
+ */
 - (float) modulo;
+
+/*!
+ *	Normalizar un vector consiste en mantener la dirección pero cambiar la
+ * magnitud (el módulo) a 1.
+ *	\return El vector normalizado.
+ */
 - (OCVector*) normaliza;
+
+/*!
+ *	Suma dos vectores.
+ *	\param El vector sumando que se añadirá.
+ *	\return El vector resultante de la suma.
+ */
 - (OCVector*) suma: (OCVector*) vector;
+
+/*!
+ *	Sustrae el vector que se pasa como parámetro del vector.
+ *	\param El vector que se restará.
+ *	\return El vector resultante de la resta.
+ */
 - (OCVector*) resta: (OCVector*) vector;
 @end
 
