@@ -20,7 +20,6 @@
 	tam=strlen(cadena)+1;
 	tmp = malloc(tam*sizeof(char));
 	old=0;
-	
 	lista=[[OCLista alloc] init];
 	for (i=0;i<tam;i++){
 		if (cadena[i]==c){
@@ -51,6 +50,10 @@
 -(OCCadena*)	siguiente{
 	actual=[actual siguiente];
 	return (OCCadena*) [actual dato];
+}
+
+-(int)			cuenta{
+	return [lista tamanio];
 }
 
 -(void)			free{

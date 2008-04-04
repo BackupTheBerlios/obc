@@ -17,8 +17,8 @@
 
 
 @interface OCTokenizer : Object{
-	OCLista* lista;
-	OCNodo*	actual;
+	OCLista*	lista;	//!< Puntero a la lista que contiene los fragmentos de la cadena
+	OCNodo*		actual;	//!< Puntero al nodo actual
 }
 /*!
  *  Construye un objeto tipo OCTokenizer
@@ -46,6 +46,11 @@
  */
 -(OCCadena*)	siguiente;
 
+/*!
+ *  Devuelve el numero de subcadenas generadas
+ *  @return Devuelve las cadenas que tenemos
+ */
+-(int)			cuenta;
 
 /*!
  *	Esta funcion és la madre de los huevos!!!!! (vamus que sirve para liberar la memoria dinamica recogida)
