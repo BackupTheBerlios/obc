@@ -20,14 +20,16 @@ p {
   text-align: justify;
 }
 .principal {
+  border: thin solid #6666cc;
+  margin-left: 10em;
 }
-.menu {
-  margin-right: 80%;
-}
+
 #navlist {
-  border-bottom: 1px solid #777788;
-  padding: 3px 0;
-  margin-left: 0;
+  border-style: solid;
+  border-color: #aaaaaa #666666 #666666 #aaaaaa;
+  border-width: 2px;
+  padding: 1px;
+  background: #cccccc none repeat scroll 0% 50%;
   font-family: Verdana,sans-serif;
   font-style: normal;
   font-variant: normal;
@@ -36,38 +38,33 @@ p {
   line-height: normal;
   font-size-adjust: none;
   font-stretch: normal;
+  float: left;
+  color: #3366ff;
+  margin-left: 0;
+  width: 12.5em;
 }
 #navlist li {
+  border-style: solid;
+  border-color: #ffffff #aaaaaa #aaaaaa #ffffff;
+  border-width: 1px;
   margin: 0;
+  padding: 0.25em 1em;
   list-style-type: none;
   list-style-image: none;
   list-style-position: outside;
-  display: inline;
+  text-align: center;
+  color: #3366ff;
 }
 #navlist li a {
-  border-style: solid solid none;
-  border-color: #777788 #777788 -moz-use-text-color;
-  border-width: 1px 1px medium;
-  padding: 3px 0.5em;
-  background: #ddddee none repeat scroll 0%;
-  margin-left: 3px;
   text-decoration: none;
+  color: #3366ff;
 }
 #navlist li a:link {
-  color: #444488;
+  color: #3366ff;
 }
 #navlist li a:visited {
-  color: #666677;
+  color: #6666cc;
 }
 #navlist li a:hover {
-  border-color: #222277;
-  background: #aaaaee none repeat scroll 0%;
-  color: #000000;
-}
-#navlist li a#current {
-  border-bottom: 1px solid white;
-  background: white none repeat scroll 0%;
-}
-#navlist li a#finlista {
-  float: right;
+  color: #ffff33;
 }

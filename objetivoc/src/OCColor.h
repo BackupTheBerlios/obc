@@ -20,20 +20,65 @@
 
 #import <objc/Object.h>
 
+/*!
+ *	\brief La clase OCColor almacena y opera con colores.
+ *
+ *	La clse OCColor almacena los valores RGB (rojo, verde y azul) de un color.
+ * También permitirá operar con colores.
+ *
+ *	\author Fernando Arroba.
+ *
+ */
+
 @interface OCColor: Object
 {
-	float r;
-	float g;
-	float b;
+	float r; //!< El parámetro de color rojo (Red).
+	float g; //!< El parámetro de color verde (Green).
+	float b; //!< El parámetro de color azul (Blue).
 }
 
+/*!
+ *	El constructor de la clase crea un color con los valores RGB puestos a cero.
+ * Es decir, en negro.
+ */
 - init;
+/*!
+ *	Establece el parámetro de color rojo.
+ *	\param El valor que se establecerá en el rojo.
+ *	\return Devuelve un self con el parámetro rojo cambiado.
+ */
 - (OCColor*) ponR: (float) vr;
+/*!
+ *	Establece el parámetro de color verde.
+ *	\param El valor que se establecerá en el verde.
+ *	\return Devuelve un self con el parámetro verde cambiado.
+ */
 - (OCColor*) ponG: (float) vg;
+/*!
+ *	Establece el parámetro de color azul.
+ *	\param El valor que se establecerá en el azul.
+ *	\return Devuelve un self con el parámetro azul. cambiado.
+ */
 - (OCColor*) ponB: (float) vb;
+/*!
+ *	Devuelve el valor del parámetro rojo.
+ *	\return Devuelve el valor del parámetro rojo.
+ */
 - (float) r;
+/*!
+ *	Devuelve el valor del parámetro verde.
+ *	\return Devuelve el valor del parámetro verde.
+ */
 - (float) g;
+/*!
+ *	Devuelve el valor del parámetro azul.
+ *	\return Devuelve el valor del parámetro azul.
+ */
 - (float) b;
+/*!
+ *	Suma de dos colores.
+ *	\return Devuelve un self con el resultado de la suma de colores.
+ */
 - (OCColor*) suma: (OCColor*) color;
 @end
 
