@@ -61,6 +61,14 @@
  */
 - (OCColor*) ponB: (float) vb;
 /*!
+ *	Establece los parámetros de color rojo, verde y azul.
+ *	\param vr es el valor que se establecerá en el rojo.
+ *	\param vg es el valor que se establecerá en el verde.
+ *	\param vb es el valor que se establecerá en el azul.
+ *	\return Devuelve un self con el parámetro azul. cambiado.
+ */
+- (OCColor*) ponR: (float) vr G: (float) vg B: (float) vb;
+/*!
  *	Devuelve el valor del parámetro rojo.
  *	\return Devuelve el valor del parámetro rojo.
  */

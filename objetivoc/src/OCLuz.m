@@ -15,64 +15,39 @@
  *      MA 02110-1301, USA.
  */
 
-#import "OCColor.h"
+#import "OCLuz.h"
 
-@implementation OCColor
+@implementation OCLuz
+
 - init
 {
 	[super init];
-	r = 0;
-	g = 0;
-	b = 0;
-}
-
-- (OCColor*) ponR: (float) vr
-{
-	r = vr;
+	posicion = [[OCVector alloc] init];		//posicion (0,0,0)
+	color = [[OCColor alloc] init];
+	color = [color ponR: 1.0 G: 1.0 B: 1.0]; //color blanco
 	return self;
 }
 
-- (OCColor*) ponG: (float) vg
+- (OCLuz*) ponPosicion: (OCVector*) pos
 {
-	g = vg;
+	posicion = pos;
 	return self;
 }
 
-- (OCColor*) ponB: (float) vb
+- (OCLuz*) ponColor: (OCColor*) col
 {
-	b = vb;
+	color = col;
 	return self;
 }
 
-- (OCColor*) ponR: (float) vr G: (float) vG B: (float) vb
+- (OCVector*) posicion
 {
-	r = vr;
-	g = vg;
-	b = vb;
-	return self;
+	return posicion;
 }
 
-- (float) r
+- (OCColor*) color
 {
-	return r;
+	return color;
 }
 
-- (float) g
-{
-	return g;
-}
-
-- (float) b
-{
-	return b;
-}
-
-- (OCColor*) suma: (OCColor*) color
-{
-	r += [color r];
-	g += [color g];
-	b += [color b];
-	return self;
-}
-
- @end
+@end

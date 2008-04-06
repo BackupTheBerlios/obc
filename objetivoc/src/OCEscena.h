@@ -32,6 +32,7 @@
 	OCLista* objetos;
 	OCLista* luces;
 	OCLista* materiales;
+	OCLista* camaras;
 }
 - init;
 @end
