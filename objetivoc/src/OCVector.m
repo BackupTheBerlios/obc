@@ -61,6 +61,24 @@
 	return z;
 }
 
+- (OCVector*) ponX: (float) VX
+{
+	x = VX;
+	return self;
+}
+
+- (OCVector*) ponY: (float) VY
+{
+	y = VY;
+	return self;
+}
+
+- (OCVector*) ponZ: (float) VZ
+{
+	z = VZ;
+	return self;
+}
+
 - (float) productoEscalar: (OCVector*) vector
 {
 	return (x * [vector x] + y * [vector y] + z * [vector z]);
@@ -124,4 +142,5 @@
 	[v ponZ: z - [vector z]];
 	return v;
 }
+
 @end

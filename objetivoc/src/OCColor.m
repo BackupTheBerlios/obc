@@ -44,7 +44,7 @@
 	return self;
 }
 
-- (OCColor*) ponR: (float) vr G: (float) vG B: (float) vb
+- (OCColor*) ponR: (float) vr G: (float) vg B: (float) vb
 {
 	r = vr;
 	g = vg;

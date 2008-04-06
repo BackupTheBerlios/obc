@@ -18,9 +18,9 @@
 #ifndef __occamara_OBJETIVO_C
 #define __occamara_OBJETIVO_C
 
-@class OCVector;
-
 #import <objc/Object.h>
+
+#import "OCVector.h"
 
 /*!
  *	Esta clase guarda los datos relativos a la posición del punto de vista desde

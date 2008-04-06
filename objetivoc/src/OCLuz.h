@@ -18,10 +18,10 @@
 #ifndef __ocluz_OBJETIVO_C
 #define __ocluz_OBJETIVO_C
 
-@class OCVector;
-@class OCColor;
+#import <objc/Object.h>
 
-#import <Objc/Object.h>
+#import "OCVector.h"
+#import "OCColor.h"
 
 /*!
  *	Esta clase será la raíz de todas las luces. En principio está implementada

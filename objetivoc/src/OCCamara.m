@@ -15,7 +15,7 @@
  *      MA 02110-1301, USA.
  */
 
-#import <objc/OCCamara.h>
+#import "OCCamara.h"
 
 @implementation OCCamara
 - init
@@ -23,7 +23,8 @@
 	[super init];
 	posicion = [[OCVector alloc] init]; //Posición (0, 0, 0)
 	miraA = [[OCVector alloc] init];		//Mira a (0, 0, 0)
-	arriba = [[OCVector alloc] iniciarConX: 0.0 Y: 0.0 Z: 1.0];	//Arriba a (0, 0, 1)
+	arriba = [[OCVector alloc] init];
+	arriba = [[self arriba] ponX: 0.0 Y: 0.0 Z: 1.0];	//Arriba a (0, 0, 1)
 	angulo = 60.0;
 	return self;
 }
@@ -73,4 +74,3 @@
 }
 @end
 
-#endif

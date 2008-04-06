@@ -63,7 +63,7 @@
  *	\param VZ desplazamiento en el eje z.
  *	\return Un puntero a sí mismo, para poder encadenar operaciones.
  */
-- (OCVector*) ponX: (float) VX Y: (float) Y Z: (float) VZ;
+- (OCVector*) ponX: (float) VX Y: (float) VY Z: (float) VZ;
 
 /*!
  *	Método que devuelve el valor del desplazamiento en el eje x.
