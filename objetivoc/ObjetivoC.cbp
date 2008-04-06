@@ -105,6 +105,14 @@
 			<Option target="Release" />
 			<Option target="pruebas" />
 		</Unit>
+		<Unit filename="src/OCCamara.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/OCCamara.m">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/OCColor.h">
 			<Option target="Debug" />
 			<Option target="Release" />
