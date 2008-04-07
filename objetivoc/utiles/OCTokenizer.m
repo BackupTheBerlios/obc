@@ -34,13 +34,13 @@
 	
 	free(tmp);
 	
-	actual=[lista inicio];
+	actual=NULL;
 	return self;
 }
 
--(OCTokenizer*) reinicia{
+-(OCCadena*) reinicia{
 	actual=[lista inicio];
-	return self;
+	return (OCCadena*) [actual dato];
 }
 
 -(OCCadena*)	actual{
@@ -48,6 +48,8 @@
 }
 
 -(OCCadena*)	siguiente{
+	if (actual==NULL)
+		return [self reinicia];
 	actual=[actual siguiente];
 	return (OCCadena*) [actual dato];
 }

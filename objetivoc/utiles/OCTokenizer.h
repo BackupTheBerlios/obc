@@ -30,9 +30,9 @@
 
 /*!
  *  Pon la cadena actual al primer nodo
- *  @return Devuelve a él mismo
+ *  @return el primer elemento
  */
--(OCTokenizer*) reinicia;
+-(OCCadena*) reinicia;
 
 /*!
  *  Devuelve la cadena actual
