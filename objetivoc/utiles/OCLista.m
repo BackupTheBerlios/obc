@@ -83,7 +83,7 @@
 
 - (OCLista*) quitarCabeza
 {
-	if (cabeza == nil) return;
+	if (cabeza == nil) return nil;
 	if (cabeza == cola)
 	{
 		[cabeza free];
@@ -101,7 +101,7 @@
 
 - (OCLista*) quitarCola
 {
-	if (cola == nil) return;
+	if (cola == nil) return nil;
 	if (cola == cabeza)
 	{
 		[cola free];
@@ -119,7 +119,7 @@
 
 - (OCLista*) borra: (OCNodo*) pOCNodo
 {
-	if (pOCNodo == nil) return;
+	if (pOCNodo == nil) return nil;
 	OCNodo* pre = [pOCNodo anterior];
 	OCNodo* post = [pOCNodo siguiente];
 	if (pre == nil) // es la cabeza de la lista
