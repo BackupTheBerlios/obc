@@ -15,7 +15,7 @@
  *      MA 02110-1301, USA.
  */
 
-#import "OCVector.h"
+#import "OCObjeto.h"
 
 @implementation OCObjeto
 - init

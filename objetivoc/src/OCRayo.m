@@ -22,7 +22,7 @@
 {
 	[super init];
 	origen = [[OCVector alloc] init];
-	direccion = [[OCVEctor alloc] init];
+	direccion = [[OCVector alloc] init];
 	return self;
 }
 - (OCRayo*) ponOrigen: (OCVector*) punto
@@ -41,6 +41,6 @@
 }
 - (OCVector*) direccion
 {
-	return dirección
+	return direccion;
 }
 @end
