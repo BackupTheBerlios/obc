@@ -54,10 +54,22 @@
 		ret=false;
 		printf("ERROR: No nosdevolvio el nulo, serà cabron!\n");
 	}
+	[test free];
 	return ret;
 }
 
 -(BOOL) compruevaRoturasCorrectas{
+	OCTokenizer*	test=[[OCTokenizer alloc] iniciaConCaracteres: "Anb" rotosPor: 'n'];
+	OCCadena*		tc;
+	int				i=0;
+	while((tc=[test siguiente])!=NULL)
+		i++;
+	if (i!=[test cuenta]) {
+		printf("Numero de tokens incorrectos, tenemos %i y deveriamos tener %i",i,[test cuenta]);
+		return false;
+	}
+	return true;
+		
 }
 
 -(BOOL) compruevaReinicia{

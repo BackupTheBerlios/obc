@@ -24,12 +24,20 @@
 
 #import "OCPruebaEnteros.h"
 #import "PruebaOCCadena.h"
+#import "PruebaOCTokenizer.h"
 #import <stdio.h>
 
 int main(int argc, char* argv[])
 {
-	OCPruebaEnteros* pruebas = [[OCPruebaEnteros alloc] init];
-	PruebaOCCadena* pruebaCadena = [[PruebaOCCadena alloc] init];
+	OCPruebaEnteros*	pruebas = [[OCPruebaEnteros alloc] init];
+	PruebaOCCadena*		pruebaCadena = [[PruebaOCCadena alloc] init];
+	PruebaOCTokenizer*	pruebasTokens= [[PruebaOCTokenizer alloc] init];
+	
+	printf("Pruebas Tokens:");
+	[pruebasTokens compruevaNumeroRoturas];printf(".");
+	[pruebasTokens compruevaSiguiente];printf(".");
+	[pruebasTokens compruevaRoturasCorrectas];printf(".");
+	printf("OK\n");
 
 	[pruebaCadena Longitud];
 	[pruebaCadena ComparaCadenaIgual];

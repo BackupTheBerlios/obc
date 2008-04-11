@@ -24,7 +24,7 @@
 	for (i=0;i<tam;i++){
 		if (cadena[i]==c){
 			strncpy(tmp,&(cadena[old]), (i-old));
-			old=i;
+			old=i+1;
 			[lista ponerEnCola: (id) [[OCCadena alloc] iniciaConCaracteres: tmp]];
 		}
 	}
